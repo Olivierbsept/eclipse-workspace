@@ -1,0 +1,36 @@
+
+#ifndef DHO3_H_
+#define DHO3_H_
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <unistd.h>
+#include "Can_bus.h"
+#include "Can.h"
+
+void VbmInit(void);
+void FumInit(void);
+void LimInit(void);
+
+void Vbm_step50ms(void);
+void Fum_step50ms(void);
+void Lim_step50ms(void);
+
+void node_receive_Fum(CAN_Message msg);
+void node_send_Fum(CAN_Bus *bus, unsigned int id, unsigned char *data, unsigned char len);
+
+void node_receive_Lim(CAN_Message msg);
+void node_send_Lim(CAN_Bus *bus, unsigned int id, unsigned char *data, unsigned char len);
+
+void node_receive_Vbm(CAN_Message msg);
+void node_send_Vbm(CAN_Bus *bus, unsigned int id, unsigned char *data, unsigned char len);
+
+void VbmSetBus(CAN_Bus *pcan_bus);
+
+typedef enum {
+    ST_ReadytoStart,
+    ST_GeneratorOn
+} EemStates;
+
+
+#endif /* DHO3_H_ */

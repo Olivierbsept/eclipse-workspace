@@ -1,0 +1,17 @@
+# Build artifacts
+Debug/
+*.o
+*.d
+*.out
+*.exe
+*.dSYM/
+
+# Editor and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Misc
+*.log

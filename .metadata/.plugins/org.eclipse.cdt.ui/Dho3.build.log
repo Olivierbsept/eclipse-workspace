@@ -1,0 +1,6 @@
+09:58:17 **** Incremental Build of configuration Release for project Dho3 ****
+make all 
+make: Nothing to be done for `all'.
+
+09:58:17 Build Finished. 0 errors, 0 warnings. (took 114ms)
+

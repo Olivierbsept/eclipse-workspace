@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;HexPatch/CtApAlmDbData .hex&apos; to &apos;input.hex&apos;" description="Rename resource &apos;CtApAlmDbData .hex&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CtApAlmDbData .hex" name="input.hex" stamp="1759771358106" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;HexPatch/input.hex.bak&apos; to &apos;input.hex&apos;" description="Rename resource &apos;input.hex.bak&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="input.hex.bak" name="input.hex" stamp="1759778519935" updateReferences="true"/>
+</session>

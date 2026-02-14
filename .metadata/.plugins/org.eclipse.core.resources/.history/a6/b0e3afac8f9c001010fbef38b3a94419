@@ -1,0 +1,107 @@
+/*
+ * Fum.c
+ *
+ *  Created on: 28 juin 2025
+ *      Author: olivierbessettemac
+ */
+
+
+#include "Fum.h"
+#include <stdio.h>
+#include <inttypes.h>
+#include <string.h>// ✅ Ajout nécessaire pour memcpy
+#include "Can.h"
+#include "Can_bus.h"
+
+
+uint16_t rx_jPropA_VbConfigMachineType_b = 0xFFFF;
+uint32_t rx_jPropA_VbConfigMachineNumber_b = 0xFFFFFFFF;
+uint8_t jPropA_Vbm_Config_ind_b=0;
+uint32_t rx_jVhbcBrc_TotalVehicleHours_b = 0xFFFFFFFF;
+uint8_t jVhbcBrc_VehicleHours_ind_b=0;
+uint16_t rx_jPropA_LiConfigMachineType_b = 0xFFFF;
+uint32_t rx_jPropA_LiConfigMachineNumber_b = 0xFFFFFFFF;
+uint16_t MachineType= 0xFFFF;
+uint32_t MachineNumber= 0xFFFFFFFF;
+uint32_t MachineHour= 0xFFFFFFFF;
+uint8_T jPropA_Lim_Config_ind_b=0;
+uint32_T rx_jPropA_LiTotalVehicleHours_b=0;
+uint8_T jPropA_LiTotalCounterHours_ind_b=0;
+uint8_T rx_jVbmcBrcSOverallEemState_b = 0;
+uint16_T tx_jPropA_FuConfigMachineType_b = 0xFFFF;
+uint32_T tx_jPropA_FuConfigMachineNumber_b = 0xFFFFFFFF;
+uint8_T jPropA_Fum_Config_tx_b = 0;
+uint32_T tx_jPropA_FuTotalVehicleHours_b = 0xFFFFFFFF;
+uint8_T jPropA_Fum_TotalCounterHours_tx_b = 0;
+
+void node_receive_Fum(CAN_Message msg) {
+    printf("  [Node] Received message ID: %03X, Data:", msg.id);
+    for (int i = 0; i < msg.dlc; i++) {
+        printf(" %02X", msg.data[i]);
+    }
+    printf("\n");
+}
+
+void node_send_Fum(CAN_Bus *bus, unsigned int id, unsigned char *data, unsigned char len) {
+    CAN_Message msg;
+    msg.id = id;
+    msg.dlc = len;
+    memcpy(msg.data, data, len);
+    can_bus_send(bus, msg);
+}
+
+void ReceiveVbmMsg(uint32_T mh) {
+	if (jVhbcBrc_VehicleHours_ind_b == false){
+		rx_jVhbcBrc_TotalVehicleHours_b=mh;
+		jVhbcBrc_VehicleHours_ind_b=true;
+	}
+}
+void ReceiveLimMsg(uint32_T mh) {
+	if (jPropA_LiTotalCounterHours_ind_b == false){
+		rx_jPropA_LiTotalVehicleHours_b=mh;
+		jPropA_LiTotalCounterHours_ind_b=true;
+	}
+}
+void ReceiveVbmIdMsg(uint32_T mn, uint16_T mt) {
+	if (jPropA_Vbm_Config_ind_b == false){
+		rx_jPropA_VbConfigMachineType_b = mt;
+		rx_jPropA_VbConfigMachineNumber_b = mn;
+		jPropA_Vbm_Config_ind_b=true;
+    	//printf("Debug Fum : %" PRId32 "\n", mn);
+	}
+}
+void ReceiveLimIdMsg(uint32_T mn, uint16_T mt) {
+	if (jPropA_Lim_Config_ind_b == false){
+		rx_jPropA_LiConfigMachineType_b=mt;
+		rx_jPropA_LiConfigMachineNumber_b=mn;
+		jPropA_Lim_Config_ind_b=true;
+	}
+}
+
+void FumInit(){
+	MachineNumber=100;
+	MachineType=101;
+	MachineHour=10000;
+	Tis_initialize();
+}
+
+// === Fonction principale appelée toutes les 10 ms ===
+void Fum_step50ms() {
+	compteurStep50ms++;
+	Tis_step_50ms();
+	if (jPropA_Fum_Config_tx_b){
+		sendFumIdToVbmMsg(tx_jPropA_FuConfigMachineNumber_b, tx_jPropA_FuConfigMachineType_b);
+		sendFumIdToLimMsg(tx_jPropA_FuConfigMachineNumber_b, tx_jPropA_FuConfigMachineType_b);
+		jPropA_Fum_Config_tx_b = false;
+    	//printf("Debug Fum mt : %" PRId32 "\n", tx_jPropA_FuConfigMachineType_b);
+	}
+	if (jPropA_Fum_TotalCounterHours_tx_b){
+		sendFumToVbmMsg(tx_jPropA_FuTotalVehicleHours_b);
+		sendFumToLimMsg(tx_jPropA_FuTotalVehicleHours_b);
+		jPropA_Fum_TotalCounterHours_tx_b=false;
+    	//printf("Debug Fum mh : %" PRId32 "\n", tx_jPropA_FuTotalVehicleHours_b);
+	}
+	if (0 == (compteurStep50ms %PERIOD_STORE50ms_5s)){
+		Store(filename_Fum,MachineNumber, MachineType, MachineHour);
+	}
+}

@@ -1,0 +1,13 @@
+// can.h
+#ifndef CAN_H
+#define CAN_H
+
+#define MAX_DATA_LENGTH 8
+
+typedef struct {
+    unsigned int id; // 29-bit identifier
+    unsigned char dlc; // Data Length Code (0-8)
+    unsigned char data[MAX_DATA_LENGTH];
+} CAN_Message;
+
+#endif

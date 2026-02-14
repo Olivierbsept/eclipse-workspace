@@ -1,0 +1,53 @@
+13:12:39 **** Incremental Build of configuration Debug for project Alm2 ****
+make all 
+Building file: ../src/Alarm.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Alarm.d" -MT"src/Alarm.o" -o "src/Alarm.o" "../src/Alarm.c"
+Finished building: ../src/Alarm.c
+ 
+Building file: ../src/CtApAlm.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/CtApAlm.d" -MT"src/CtApAlm.o" -o "src/CtApAlm.o" "../src/CtApAlm.c"
+In file included from ../src/CtApAlm.c:69:
+../src/CtApAlmLibStackMgr.h:22:13: warning: unused function 'smoothsort' [-Wunused-function]
+static void smoothsort(value_t *a, size_t n);
+            ^
+../src/CtApAlmLibStackMgr.h:27:13: warning: unused function 'sift' [-Wunused-function]
+static void sift(T_State *s);
+            ^
+2 warnings generated.
+Finished building: ../src/CtApAlm.c
+ 
+Building file: ../src/CtApAlmFifoMgr.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/CtApAlmFifoMgr.d" -MT"src/CtApAlmFifoMgr.o" -o "src/CtApAlmFifoMgr.o" "../src/CtApAlmFifoMgr.c"
+Finished building: ../src/CtApAlmFifoMgr.c
+ 
+Building file: ../src/CtApAlmLibStackMgr.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/CtApAlmLibStackMgr.d" -MT"src/CtApAlmLibStackMgr.o" -o "src/CtApAlmLibStackMgr.o" "../src/CtApAlmLibStackMgr.c"
+Finished building: ../src/CtApAlmLibStackMgr.c
+ 
+Building file: ../src/EemStates.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/EemStates.d" -MT"src/EemStates.o" -o "src/EemStates.o" "../src/EemStates.c"
+Finished building: ../src/EemStates.c
+ 
+Building file: ../src/Simu.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Simu.d" -MT"src/Simu.o" -o "src/Simu.o" "../src/Simu.c"
+Finished building: ../src/Simu.c
+ 
+Building file: ../src/Vbm.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Vbm.d" -MT"src/Vbm.o" -o "src/Vbm.o" "../src/Vbm.c"
+Finished building: ../src/Vbm.c
+ 
+Building target: Alm2
+Invoking: Cross GCC Linker
+gcc  -o "Alm2"  ./src/Alarm.o ./src/CtApAlm.o ./src/CtApAlmFifoMgr.o ./src/CtApAlmLibStackMgr.o ./src/EemStates.o ./src/Simu.o ./src/Vbm.o   
+Finished building target: Alm2
+ 
+
+13:12:41 Build Finished. 0 errors, 2 warnings. (took 2s.228ms)
+

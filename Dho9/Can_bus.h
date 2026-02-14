@@ -1,0 +1,21 @@
+// can_bus.h
+#ifndef CAN_BUS_H
+#define CAN_BUS_H
+
+#include "Can.h"
+
+#define MAX_NODES 10
+
+typedef struct {
+    void (*receive_callbacks[MAX_NODES])(CAN_Message);
+    int node_count;
+} CAN_Bus;
+
+void can_bus_init(CAN_Bus *bus);
+void can_bus_register(CAN_Bus *bus, void (*callback)(CAN_Message));
+void can_bus_send_Vbm(CAN_Bus *bus, CAN_Message msg);
+void can_bus_send_Lim(CAN_Bus *bus, CAN_Message msg);
+void can_bus_send_Fum(CAN_Bus *bus, CAN_Message msg);
+void can_bus_send(CAN_Bus *bus, CAN_Message msg);
+
+#endif

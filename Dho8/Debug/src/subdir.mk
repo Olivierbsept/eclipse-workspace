@@ -1,0 +1,45 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../src/CtApTis.c \
+../src/Dho.c \
+../src/DhoCore.c \
+../src/Fum.c \
+../src/Lim.c \
+../src/TIS_modelIO.c \
+../src/Vbm.c \
+../src/xml_utils.c 
+
+OBJS += \
+./src/CtApTis.o \
+./src/Dho.o \
+./src/DhoCore.o \
+./src/Fum.o \
+./src/Lim.o \
+./src/TIS_modelIO.o \
+./src/Vbm.o \
+./src/xml_utils.o 
+
+C_DEPS += \
+./src/CtApTis.d \
+./src/Dho.d \
+./src/DhoCore.d \
+./src/Fum.d \
+./src/Lim.d \
+./src/TIS_modelIO.d \
+./src/Vbm.d \
+./src/xml_utils.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+src/%.o: ../src/%.c src/subdir.mk
+	@echo 'Building file: $<'
+	@echo 'Invoking: Cross GCC Compiler'
+	gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

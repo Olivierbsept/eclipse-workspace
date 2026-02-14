@@ -1,0 +1,45 @@
+#ifndef VBM_H_
+#define VBM_H_
+
+#include "DhoCommun.h"
+#include "rtwtypes.h"
+#include <string.h>// ✅ Ajout nécessaire pour memcpy
+#include "Can.h"
+#include "Can_bus.h"
+
+// === Variables globales définies dans Vbm.c ===
+void FumToVbmMsg(IdentEcu ident);
+void LimToVbmMsg(IdentEcu ident);
+void FumIdToVbmMsg(IdentEcu ident);
+void LimIdToVbmMsg(IdentEcu ident);
+void sendFumToVbmMsg (uint32_t mh);
+void sendFumIdToVbmMsg(uint32_t mn, uint16_t mt);
+
+// === Variables globales définies dans Fum.c===
+extern void ReceiveVbmMsg (uint32_T mh);//extern void VbmToFumMsg(IdentVbm ident);
+extern void ReceiveVbmIdMsg (uint32_T mn, uint32_T mt);//extern void VbmIdToFumMsg(IdentVbm ident);
+
+// === Variables globales définies dans Lim.c===
+extern void VbmToLimMsg(IdentEcu ident);
+extern void VbmIdToLimMsg(IdentEcu ident);
+
+// === Variables globales définies dans Dho.c===
+extern char* filename_Vbm;
+extern void Store(char* fileName, uint32_t mn, uint16_t mt, uint32_t mh);
+
+// === Variables globales définies dans DhoCore.c===
+extern void Call50msDho_Vbm(Trigs* rxTrigs,IdentEcu* ident0Addr, Idents idents);
+extern void Call50msDho_Vbm_Diag(Trigs* rxTrigs,IdentEcu* ident0Addr, Idents idents);
+extern void InitDho_Vbm(Configs configs);
+
+// === Variables globales privées ===
+static uint32_t compteurStep50ms = 0;
+static IdentEcu ident0;
+static Trigs trigs;
+static Idents idents;
+static Phases phases;
+static uint32_t VbmCounter;
+static Configs configs;
+static CAN_Bus can_bus;
+
+#endif /* VBM_H_ */

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Dho2/src/Vbm&apos; to &apos;Vbm.c&apos;" description="Rename resource &apos;Vbm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Vbm" name="Vbm.c" stamp="1747301179136" updateReferences="true"/>
+</session>

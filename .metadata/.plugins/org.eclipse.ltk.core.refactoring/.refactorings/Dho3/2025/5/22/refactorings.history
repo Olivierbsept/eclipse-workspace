@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Dho3/src/Commun.c&apos; to &apos;DhoCommun.c&apos;" description="Rename resource &apos;Commun.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Commun.c" name="DhoCommun.c" stamp="1748632712550" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Dho3/src/Commun.h&apos; to &apos;DhoCommun.h&apos;" description="Rename resource &apos;Commun.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Commun.h" name="DhoCommun.h" stamp="1748632727866" updateReferences="true"/>
+</session>

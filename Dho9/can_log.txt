@@ -1,0 +1,6 @@
+[+4.125 s] ID: 210, DLC: 8, Data: 00 00 00 EA FF FF FF FF
+[+4.125 s] ID: 110, DLC: 8, Data: 00 00 00 02 FF FF FF FF
+[+4.125 s] ID: 310, DLC: 8, Data: 00 00 00 66 FF FF FF FF
+[+8.214 s] ID: 210, DLC: 8, Data: 00 00 00 EC FF FF FF FF
+[+8.214 s] ID: 110, DLC: 8, Data: 00 00 00 04 FF FF FF FF
+[+8.214 s] ID: 310, DLC: 8, Data: 00 00 00 68 FF FF FF FF

@@ -1,0 +1,77 @@
+17:14:36 **** Incremental Build of configuration Debug for project Dho8 ****
+make all 
+Building file: ../src/CtApTis.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/CtApTis.d" -MT"src/CtApTis.o" -o "src/CtApTis.o" "../src/CtApTis.c"
+../src/CtApTis.c:25:3: error: use of undeclared identifier 'SG_jVbmsBrc_VbmAlive'
+  SG_jVbmsBrc_VbmAlive
+  ^
+../src/CtApTis.c:29:3: error: use of undeclared identifier 'Bus_CtrlIoResp'
+  Bus_CtrlIoResp rtb_TB_RawCore_ref_o16;
+  ^
+../src/CtApTis.c:30:3: error: use of undeclared identifier 'Bus_CtrlIoResp'
+  Bus_CtrlIoResp rtb_TB_RawCore_ref_o17;
+  ^
+../src/CtApTis.c:45:29: error: implicit declaration of function 'getFlag_jTBR2_PropB' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion5_i = getFlag_jTBR2_PropB();
+                            ^
+../src/CtApTis.c:50:29: error: implicit declaration of function 'getFlag_jVbmsBrc_VbmAlive' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion2_n = getFlag_jVbmsBrc_VbmAlive();
+                            ^
+../src/CtApTis.c:55:29: error: implicit declaration of function 'getFlag_jVbmcBrcSystemStatus' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion1_h = getFlag_jVbmcBrcSystemStatus();
+                            ^
+../src/CtApTis.c:60:29: error: implicit declaration of function 'getTrailBrkPrkEhvState' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion1_e = getTrailBrkPrkEhvState();
+                            ^
+../src/CtApTis.c:65:29: error: implicit declaration of function 'getTrailBrkSrvEhvState' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion2_p = getTrailBrkSrvEhvState();
+                            ^
+../src/CtApTis.c:65:29: note: did you mean 'getTrailBrkPrkEhvState'?
+../src/CtApTis.c:60:29: note: 'getTrailBrkPrkEhvState' declared here
+  rtb_SignalConversion1_e = getTrailBrkPrkEhvState();
+                            ^
+../src/CtApTis.c:70:29: error: implicit declaration of function 'getTrailBrkHydBlckPar' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion8_i = getTrailBrkHydBlckPar();
+                            ^
+../src/CtApTis.c:75:27: error: implicit declaration of function 'getTrailBrkHydPreshotPressPar' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  rtb_SignalConversion9 = getTrailBrkHydPreshotPressPar();
+                          ^
+../src/CtApTis.c:90:7: error: implicit declaration of function 'getSecondaryBrakePosition' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    = getSecondaryBrakePosition();
+      ^
+../src/CtApTis.c:92:7: error: implicit declaration of function 'getTrailerParkBrakeReleaseRq' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    = getTrailerParkBrakeReleaseRq();
+      ^
+../src/CtApTis.c:94:7: error: implicit declaration of function 'getOutBrkParkLock' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    = getOutBrkParkLock();
+      ^
+../src/CtApTis.c:96:5: error: implicit declaration of function 'getOutBrkRight' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    getOutBrkRight();
+    ^
+../src/CtApTis.c:98:5: error: implicit declaration of function 'getOutBrkLeft' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    getOutBrkLeft();
+    ^
+../src/CtApTis.c:98:5: note: did you mean 'getOutBrkRight'?
+../src/CtApTis.c:96:5: note: 'getOutBrkRight' declared here
+    getOutBrkRight();
+    ^
+../src/CtApTis.c:100:7: error: implicit declaration of function 'getVehSpd' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    = getVehSpd();
+      ^
+../src/CtApTis.c:102:7: error: implicit declaration of function 'getSecondaryBrakeSwitchActVal' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    = getSecondaryBrakeSwitchActVal();
+      ^
+../src/CtApTis.c:104:5: error: implicit declaration of function 'getTBR2_Counter' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    getTBR2_Counter();
+    ^
+../src/CtApTis.c:106:5: error: implicit declaration of function 'getTBR2_Crc' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+    getTBR2_Crc();
+    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [src/CtApTis.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+17:14:36 Build Failed. 20 errors, 0 warnings. (took 440ms)
+

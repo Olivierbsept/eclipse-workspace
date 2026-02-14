@@ -1,0 +1,14 @@
+/*
+ * funcRec.h
+ *
+ *  Created on: 2 mai 2021
+ *      Author: olivierbessettemac
+ */
+
+#ifndef FUNCREC_H_
+#define FUNCREC_H_
+
+char funcRec (int);
+
+
+#endif /* FUNCREC_H_ */

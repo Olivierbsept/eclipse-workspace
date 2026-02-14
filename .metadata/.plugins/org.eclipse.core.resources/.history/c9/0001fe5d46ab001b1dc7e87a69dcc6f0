@@ -1,0 +1,25 @@
+/*
+ ============================================================================
+ Name        : Hello_c.c
+ Author      : OB
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "funcRec.h"
+
+int main(void) {
+	puts("!!!Hello World in c!!!"); /* prints !!!Hello World!!! */
+	return EXIT_SUCCESS;
+}
+
+char funcRec()
+{
+	char tab[64];
+	char ret;
+	return ret;
+}
