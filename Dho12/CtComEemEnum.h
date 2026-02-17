@@ -23,7 +23,7 @@ typedef enum {
   EemState_GhostWakeUp = 29,
   EemState_Error = 30,
   EemState_NotAvailable = 31           /* Default value */
-} ENU_OverallEemState;
+} ENU_OverallEemState_TIS;
 
 typedef enum {
   AvailableFeedback_None									=  0,
@@ -34,12 +34,12 @@ typedef enum {
   AvailableFeedback_DashboardTerminalDisplayNotAvailable	=  5,
   AvailableFeedback_Error									=  6,
   AvailableFeedback_NotAvailable							=  7,
-} T_AvailableFeedback;
+} T_AvailableFeedback_TIS;
 
 typedef enum {
 	DiagInhibit_Allowed = 0,
 	DiagInhibit_NotAllowed = 1,
 	DiagInhibit_Error = 2,
 	DiagInhibit_NotAvailable = 3,
-} T_DiagInhibit;
+} T_DiagInhibit_TIS;
 #endif /* EEM_ */
