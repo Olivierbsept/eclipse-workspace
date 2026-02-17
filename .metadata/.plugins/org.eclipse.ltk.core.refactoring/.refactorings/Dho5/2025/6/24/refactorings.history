@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Dho5/src/Dho4.c&apos; to &apos;Dho.c&apos;" description="Rename resource &apos;Dho4.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Dho4.c" name="Dho.c" stamp="1749454120180" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Dho5/src/Dho4.h&apos; to &apos;Dho.h&apos;" description="Rename resource &apos;Dho4.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Dho4.h" name="Dho.h" stamp="1749454130242" updateReferences="true"/>
-</session>
