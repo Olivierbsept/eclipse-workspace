@@ -23,7 +23,7 @@ typedef enum {
   EemState_GhostWakeUp = 29,
   EemState_Error = 30,
   EemState_NotAvailable = 31           /* Default value */
-} ENU_OverallEemState_TIS2;
+} ENU_OverallEemState_TIS;
 
 typedef enum {
   AvailableFeedback_None									=  0,
