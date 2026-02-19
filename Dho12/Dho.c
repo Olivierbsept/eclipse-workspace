@@ -20,7 +20,7 @@ uint32 getMh_repair(){
 uint16 getMt_repair(){
 	return mt_repair;
 }
-uint32 getEcuName(){
+EcuName getEcuName(){
 	return ecuName;
 }
 void DhoInit_Ecu(EcuStruct* ecuAddr,DhoConfigs dhoConfigs){

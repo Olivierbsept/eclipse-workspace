@@ -26,18 +26,18 @@ typedef struct{
 	uint16 ResetMtCfg;
 } DhoConfigs;
 
-static const uint16_t PERIOD_MSGID100ms_6s = 60;
-static const uint16_t PERIOD_MSGID100ms_5s = 50;
-static const uint16_t PERIOD_MSGID100ms_3s = 30;
-static const uint16_t PERIOD_STORE100ms_5s = 50;
-static const uint16_t PERIOD_COUNT100ms_1s = 10;
-static const uint16_t PERIOD_COUNT4ms_100ms = 25;
+static const uint16_T PERIOD_MSGID100ms_6s = 60;
+static const uint16_T PERIOD_MSGID100ms_5s = 50;
+static const uint16_T PERIOD_MSGID100ms_3s = 30;
+static const uint16_T PERIOD_STORE100ms_5s = 50;
+static const uint16_T PERIOD_COUNT100ms_1s = 10;
+static const uint16_T PERIOD_COUNT4ms_100ms = 25;
 
-static const uint16_t PERIOD_MSGID50ms_6s = 120;
-static const uint16_t PERIOD_MSGID50ms_5s = 100;
-static const uint16_t PERIOD_MSGID50ms_3s = 60;
-static const uint16_t PERIOD_STORE50ms_5s = 100;
-static const uint16_t PERIOD_COUNT50ms_1s = 20;
+static const uint16_T PERIOD_MSGID50ms_6s = 120;
+static const uint16_T PERIOD_MSGID50ms_5s = 100;
+static const uint16_T PERIOD_MSGID50ms_3s = 60;
+static const uint16_T PERIOD_STORE50ms_5s = 100;
+static const uint16_T PERIOD_COUNT50ms_1s = 20;
 
 static const uint16_T	TIMEOUT100ms_5S =			50;
 static const uint8_T	DEBOUNCE_3x =				3;
