@@ -90,13 +90,13 @@ void ExternalCalls_step(void) {
     	if (entries[current_index].extCall == IgnitionKeyOn){
     		phases.SyncDiagPhase = true;//en ReadyToStartEngine
     		phases.SyncConfigPhase = false; //en GeneratorOn
-    		rx_jVbmcBrcSOverallEemState_b = EemState_ReadyToStartEngine;
+    		rx_jVbmcBrcSOverallEemState_b = TIS_EemState_ReadyToStartEngine;
     		RCtApTis_RxEvents(Rte_ActivatingEvent_RCtApTis_RxEvents_ActReason_EemStates);
     	}
     	if (entries[current_index].extCall == EngineRunning){
     		phases.SyncDiagPhase = false;
     		phases.SyncConfigPhase = true;
-    		rx_jVbmcBrcSOverallEemState_b = EemState_GeneratorOn;
+    		rx_jVbmcBrcSOverallEemState_b = TIS_EemState_GeneratorOn;
     		RCtApTis_RxEvents(Rte_ActivatingEvent_RCtApTis_RxEvents_ActReason_EemStates);
     	}
     	if (entries[current_index].extCall == ReadBackup){

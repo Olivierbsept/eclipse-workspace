@@ -18,7 +18,7 @@ uint8_T MachineCountFlag = false;
 uint8_T jPropA_Lim_Config_ind_b=0;
 uint32_T rx_jPropA_LiTotalVehicleHours_b=0;
 uint8_T jPropA_LiTotalCounterHours_ind_b=0;
-uint8_T rx_jVbmcBrcSOverallEemState_b = EemState_ReadyToStartEngine;
+uint8_T rx_jVbmcBrcSOverallEemState_b = TIS_EemState_ReadyToStartEngine;
 uint16_T tx_jPropA_FuConfigMachineType_b = 0xFFFF;
 uint32_T tx_jPropA_FuConfigMachineNumber_b = 0xFFFFFFFF;
 uint8_T jPropA_Fum_Config_tx_b = 0;
@@ -56,7 +56,7 @@ void FumInit(){
 	MachineNumber=100;
 	MachineType=110;
 	MachineHour=150;
-	rx_jVbmcBrcSOverallEemState_b = EemState_ReadyToStartEngine;
+	rx_jVbmcBrcSOverallEemState_b = TIS_EemState_ReadyToStartEngine;
 	Tis_initialize();
 }
 

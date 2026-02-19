@@ -8,7 +8,7 @@ static uint32_T compteurStep100ms = 0;
 static DhoIdent ident0;
 static DhoTrigs trigs;
 static DhoIdents idents;
-static ENU_OverallEemState eemState;
+static enum ENU_OverallEemState_TIS eemState;
 
 // === Init === //
 void Tis_initialize(){
@@ -39,7 +39,7 @@ void Tis_initialize(){
 // === Fonction principale appelée toutes les 10 ms ===
 void Tis_step_100ms() {
 	compteurStep100ms++;
-	eemState = (ENU_OverallEemState) getOverallEemState();
+	eemState = (enum ENU_OverallEemState_TIS) getOverallEemState();
 
     if (compteurStep100ms % PERIOD_COUNT100ms_1s == 0){
     	ident0.mh=getMachineHourStorage();
@@ -74,17 +74,17 @@ void Tis_step_100ms() {
 		setFlagReset_Ecu2_TotalCounterHours(false);
 	}
 
-	if ( (eemState == EemState_GeneratorOnHighLoad) ||
-		 (eemState == EemState_GeneratorOn) ){
+	if ( (eemState == TIS_EemState_GeneratorOnHighLoad) ||
+		 (eemState == TIS_EemState_GeneratorOn) ){
 		startMachineHourCount();
 	}
 	else{
 		stopMachineHourCount();
 	}
 
-	if ( (eemState != EemState_ReadyToStartEngine) &&
-		(eemState != EemState_GeneratorOnHighLoad) &&
-		(eemState != EemState_GeneratorOn) ){
+	if ( (eemState != TIS_EemState_ReadyToStartEngine) &&
+		(eemState != TIS_EemState_GeneratorOnHighLoad) &&
+		(eemState != TIS_EemState_GeneratorOn) ){
 		if (0 == (compteurStep100ms %PERIOD_MSGID100ms_3s)){
 	    	if (getTrigReset_Ecu0_Config()==false){
 	        	setMachineHourEcu0(ident0.mh);
@@ -93,11 +93,11 @@ void Tis_step_100ms() {
 		}
 	}
 	else{
-		if (EemState_ReadyToStartEngine == eemState){
+		if (TIS_EemState_ReadyToStartEngine == eemState){
 			DhoCall_100ms_Diag_FumLim(&trigs, &ident0, idents);
 		}
-		else if ( (EemState_GeneratorOnHighLoad == eemState) ||
-			(EemState_GeneratorOn == eemState) ){
+		else if ( (TIS_EemState_GeneratorOnHighLoad == eemState) ||
+			(TIS_EemState_GeneratorOn == eemState) ){
 			DhoCall_100ms_FumLim(&trigs, &ident0, idents);
 		}
 		if (trigs.TxTrig){

@@ -80,10 +80,10 @@ Std_ReturnType Rte_Read_PpInCmaTis_DeCmaTis(SG_CmaTis *data){
 }
 Std_ReturnType Rte_Read_PpInEemStates_DeValues(SG_EemStates *data){
 	if (phases.SyncConfigPhase==true){
-		data->OverallEemState=EemState_GeneratorOn;
+		data->OverallEemState=TIS_EemState_GeneratorOn;
 	}
 	else if (phases.SyncDiagPhase == true){
-		data->OverallEemState=EemState_ReadyToStartEngine;
+		data->OverallEemState=TIS_EemState_ReadyToStartEngine;
 	}
 	return E_OK;
 }

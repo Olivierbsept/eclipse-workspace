@@ -917,7 +917,7 @@ FUNC(void, CtApTis_CODE) RCtApTis_Init(void) /* PRQA S 0624, 3206 */ /* MD_Rte_0
 	Rte_Write_PpOutTisModuleVersion_DeModuleVersion(&ModuleVersion);
 	Rte_IrvWrite_RCtApTis_Init_Irv_StartRecvOpHours(FALSE);
 	Rte_IrvWrite_RCtApTis_Init_Irv_PreviousHour(0xFFFFFFFF);
-	EemStates.OverallEemState = EemState_NotAvailable;
+	EemStates.OverallEemState = TIS_EemState_NotAvailable;
 	MachineTimeReducedOnce = FALSE;
 	ident0 = (DhoIdent) { 0xFFFF,0xFFFFFFFF,0xFFFFFFFF };
 	idents = (DhoIdents){ (DhoIdent) { 0xFFFF, 0xFFFFFFFF, 0xFFFFFFFF }, (DhoIdent) { 0xFFFF, 0xFFFFFFFF, 0xFFFFFFFF } };
@@ -1033,13 +1033,13 @@ FUNC(void, CtApTis_CODE) RCtApTis_RxEvents(Rte_ActivatingEvent_RCtApTis_RxEvents
 		Rte_Read_PpInEemStates_DeValues(&EemStates);
 		switch (EemStates.OverallEemState)
 		{
-		case EemState_GeneratorOn:
-		case EemState_GeneratorOnHighLoad:
+		case TIS_EemState_GeneratorOn:
+		case TIS_EemState_GeneratorOnHighLoad:
 			Rte_Call_PpMasterConfig_StartMachineCounter();
 			dhoTrigs.Reset1Trig=FALSE;
 			dhoTrigs.Reset2Trig=FALSE;
 			break;
-		case EemState_ReadyToStartEngine:
+		case TIS_EemState_ReadyToStartEngine:
 			Rte_Call_PpMasterConfig_StopMachineCounter();
 			MachineTimeReducedOnce = FALSE;
 			break;
@@ -1206,9 +1206,9 @@ FUNC(void, CtApTis_CODE) RCtApTis_Step100ms(void) /* PRQA S 0624, 3206 */ /* MD_
  *********************************************************************************************************************/
 
 	compteurStepTis100ms++;
-	if ((EemStates.OverallEemState != EemState_ReadyToStartEngine) &&
-		(EemStates.OverallEemState != EemState_GeneratorOnHighLoad) &&
-		(EemStates.OverallEemState != EemState_GeneratorOn)){
+	if ((EemStates.OverallEemState != TIS_EemState_ReadyToStartEngine) &&
+		(EemStates.OverallEemState != TIS_EemState_GeneratorOnHighLoad) &&
+		(EemStates.OverallEemState != TIS_EemState_GeneratorOn)){
 
 		if (0 == (compteurStepTis100ms %PERIOD_MSGID100ms_3s)){
 			sTotalVehicleHours TotalVehicleHours;
@@ -1217,11 +1217,11 @@ FUNC(void, CtApTis_CODE) RCtApTis_Step100ms(void) /* PRQA S 0624, 3206 */ /* MD_
 		}
 	}
 	else{
-		if (EemState_ReadyToStartEngine == EemStates.OverallEemState){
+		if (TIS_EemState_ReadyToStartEngine == EemStates.OverallEemState){
 			DhoCall_100ms_Diag_Vbm(&dhoTrigs, &ident0, idents);
 		}
-		else if ( (EemState_GeneratorOnHighLoad == EemStates.OverallEemState) ||
-			(EemState_GeneratorOn == EemStates.OverallEemState) ){
+		else if ( (TIS_EemState_GeneratorOnHighLoad == EemStates.OverallEemState) ||
+			(TIS_EemState_GeneratorOn == EemStates.OverallEemState) ){
 			RhoCall_100ms(&rhoTrigs);
 			if (rhoTrigs.MnthOvrWrttnTrig)dhoTrigs.SyncBlkd=TRUE;
 			DhoCall_100ms_Vbm(&dhoTrigs, &ident0, idents);
