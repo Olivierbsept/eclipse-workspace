@@ -15,10 +15,15 @@
 
 void append_to_xml_nvm(const char* filename, uint32 mnbu, uint16 mtbu, uint32 mhbu, uint8 ecuname, uint16 mtf, uint32 mnf, uint16 mtl, uint32 mnl) {
     FILE* file = fopen(filename, "a");
-    if (!file) {
+    /*if (!file) {
         perror("Erreur d'ouverture du fichier");
         exit(EXIT_FAILURE);
-    }
+    }*/
+    char message[256];
+    snprintf(message, sizeof(message),
+             "Erreur d'ouverture du fichier '%s'", filename);
+
+    perror(message);
     fprintf(file,
         "  <entry>\n"
         "    <mhbu>%u</mhbu>\n"

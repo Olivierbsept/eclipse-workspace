@@ -13,10 +13,15 @@
 
 void start_xml(const char* filename) {
     FILE* file = fopen(filename, "w");
-    if (file) {
+    /*if (file) {
         fprintf(file, "<data>\n");
         fclose(file);
-    }
+    }*/
+    char message[256];
+    snprintf(message, sizeof(message),
+             "Erreur d'ouverture du fichier '%s'", filename);
+
+    perror(message);
 }
 
 void append_to_xml(const char* filename, uint32_T mn, uint16_T mt, uint32_T mh) {

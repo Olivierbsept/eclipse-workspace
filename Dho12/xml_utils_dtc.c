@@ -13,10 +13,16 @@
 
 void append_to_xml_dtc(const char* filename, uint32_T dtc, uint8_T state) {
     FILE* file = fopen(filename, "a");
-    if (!file) {
+    /*if (!file) {
         perror("Erreur d'ouverture du fichier");
         exit(EXIT_FAILURE);
-    }
+    }*/
+
+    char message[256];
+    snprintf(message, sizeof(message),
+             "Erreur d'ouverture du fichier '%s'", filename);
+
+    perror(message);
 
     time_t now = time(NULL);
     fprintf(file,

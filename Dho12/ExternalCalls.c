@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <sys/time.h>
 #include "Rho.h"
-#include "vbm.h" // pour uint16, boolean, TRUE/FALSE
+#include "Vbm.h" // pour uint16, boolean, TRUE/FALSE
 #include "Rte_CtApTis.h"
 
 #define MAX_LINE_LENGTH 256
@@ -31,7 +31,7 @@ typedef enum
 	EngineRunning,
 	IgnitionKeyOff,
 	OvrwEnbld,
-	Reset0,
+	Reset0=7,
 	Reset1,
 	Reset2
 } ExternCallsEnum;
@@ -100,7 +100,7 @@ void ExternalCalls_step(void) {
     		RCtApTis_RxEvents(Rte_ActivatingEvent_RCtApTis_RxEvents_ActReason_EemStates);
     	}
     	if (entries[current_index].extCall == ReadBackup){
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		uint8 MI_data0[10], MI_data1[10], MI_data2[10], MI_data3[10], MI_data4[1];
     		DataServices_Data_RHO_Bckup_ReadData(OpStatus, MI_data0, MI_data1, MI_data2, MI_data3, MI_data4);
     		int i;
@@ -130,19 +130,19 @@ void ExternalCalls_step(void) {
     	}
     	if (entries[current_index].extCall == Confirm){
     		uint8 Data = RhoCtrlVal_Confirm;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     	}
     	if (entries[current_index].extCall == Restore){
     		uint8 Data = RhoCtrlVal_Restore;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     	}
     	if (entries[current_index].extCall == OvrwEnbld){
     		uint8 Data = RhoCtrlVal_OvrwEnbld;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     		SetOvrwEnbldCfg_Fum(true);
@@ -150,19 +150,19 @@ void ExternalCalls_step(void) {
     	}
     	if (entries[current_index].extCall == Reset0){
     		uint8 Data = RhoCtrlVal_Reset0;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     	}
     	if (entries[current_index].extCall == Reset1){
     		uint8 Data = RhoCtrlVal_Reset1;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     	}
     	if (entries[current_index].extCall == Reset2){
     		uint8 Data = RhoCtrlVal_Reset2;
-    		Dcm_OpStatusType OpStatus;
+    		Dcm_OpStatusType OpStatus = 0;
     		Dcm_NegativeResponseCodeType ErrorCode;
     		DataServices_Data_RHO_Ctrl_WriteData(&Data, OpStatus, &ErrorCode); /* PRQA S 0624, 3206 */ /* MD_Rte_0624, MD_Rte_3206 */
     	}

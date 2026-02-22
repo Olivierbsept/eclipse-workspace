@@ -230,13 +230,13 @@ void RhoCheckUniqueId (DhoTrigs dhoTrig, DhoIdent ident0, DhoIdents idents)
 	{
 		PrepareDtcC457 = TRUE;
 	}
-	//Ecu1 est présent, Ecu2 est absent
+	//Ecu1 est absent, Ecu2 est présent
 	else if ((dhoTrig.Rx1TooSlowTrig && !dhoTrig.Rx2TooSlowTrig)
 		&& (  ( (ident0.mn != idents.Ident2.mn) || (ident0.mt != idents.Ident2.mt) )  )   )
 	{
 		PrepareDtcC457 = TRUE;
 	}
-	//Ecu2 est présent, Ecu1 est absent
+	//Ecu2 est absent, Ecu1 est présent
 	else if ((dhoTrig.Rx2TooSlowTrig && !dhoTrig.Rx1TooSlowTrig)
 		&& (  ( (ident0.mn != idents.Ident1.mn) || (ident0.mt != idents.Ident1.mt) )  )   )
 	{
