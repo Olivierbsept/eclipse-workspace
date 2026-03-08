@@ -1,3 +1,4 @@
 /.metadata/
 */*.xml
 */.DS_Store
+.DS_store
